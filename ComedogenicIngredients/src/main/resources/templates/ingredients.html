@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table of Comedogenic Ingredients</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class = "container">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="/index">
+            <img th:src="@{/logo.png}" width="80" height="80" class="d-inline-block align-top" alt="">
+            Comedogenic Ingredients Checker
+        </a>
+    </nav>
+</div>
+<div class="container">
+    <div class="text-center p-4">
+    <h1>Ingredients Table</h1>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Comedogenic Rating</th>
+            <th>Irritancy</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ingredient : ${listIngredient}">
+            <td th:text="${ingredient.id}"></td>
+            <td th:text="${ingredient.name}"></td>
+            <td th:text="${ingredient.comedogenicRating}"></td>
+            <td th:text="${ingredient.irritancy}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
